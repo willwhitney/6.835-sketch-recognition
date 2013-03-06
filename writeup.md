@@ -1,6 +1,6 @@
 Will Whitney
 
-# Image Recognition
+# Image-Based Sketch Recognition
 
 
 All source code included. Consult `createFeatureImage.m`, `recognizeSymbol.m`, and `test.m`. The last of these was the training code I used to determine optimal parameters.
@@ -8,6 +8,22 @@ All source code included. Consult `createFeatureImage.m`, `recognizeSymbol.m`, a
 ## Accuracy
 
 The accuracy of the system is clearly affected by the parameters, but not to a tremendous degree (within a reasonable parameter range). The improvement with my best parameters over the defaults was 8% on circuits, 4% on digits, and actually slightly negative for shapes.
+
+
+Method			|	Digits		|	Circuits	| Shapes
+---------------	|--------------	|--------------	|---------
+Default			| 93.75%		|	80%			| 99.5%
+Best			| 97.75%		|	88%			| 98.5%
+Pixel-only		| 95.25%		|	83.25%		| 98.5%
+No smoothing	| 80.5%			|	77%			| 98.75%
+
+
+### Baseline Analysis
+
+The pixel-only method actually produced very good results, better than the default system at everything but shapes. My theory for this is that, in our implementation, the details of angle became noise. This could be because my default tangent window was too wide, and was thus obscuring details of the drawing which actually contained valuable information.
+
+The method without smoothing, on the other had, performed quite poorly on digits and circuits. It makes perfect sense that this would be the case, as the distance metric that we used would penalize minor misalignment very harshly, and without some fuzzing misalignment was guaranteed.
+
 
 ### Best Parameters
 	
@@ -76,8 +92,9 @@ Several of the shape and circuit cases are likewise at slightly off angles, or h
 	
 Using the default parameters of `h=24, tangentWindowSize=10, sigma=1.0`, this system had an accuracy of 93.75% on `digits`, 80% on `circuits`, and 99.5% on `shapes`.
 
+This `shapes` performance was very good indeed, and the difference in performance based on these parameter changes may indicate that shape drawing or 'more freehand' drawing in general requires a different set of parameters. Of course, it could just be that having a broader tangent window allowed slightly more rotation-invariance.
+
 
 ## Additional Steps
 
 Of the steps described in the paper, accounting for rotations has to be the biggest (and simplest) improvement to make to this system. While in the case of digits, the system could reasonably be expected to get digits in only one orientation (or, equivalently, with a known orientation), and thus rotation-insensitivity wouldn't help much, in the cases of circuits and shapes many orientations will likely be encountered. As it stands, this system only matches different orientations when a sample of that orientation exists in the training set, which would drastically reduce effectiveness in real-world situations.
-

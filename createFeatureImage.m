@@ -77,8 +77,8 @@ function fimg = createFeatureImage(symbol)
         end
     end
     
-    smoother = fspecial('gaussian', [3 3], sigma);
-    fimg = imfilter(fimg, smoother);
+%     smoother = fspecial('gaussian', [3 3], sigma);
+%     fimg = imfilter(fimg, smoother);
     
 %     clf
 %     displayImage(fimg, symbol)
