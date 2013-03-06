@@ -26,16 +26,19 @@ function nearest = recognizeSymbol(testimage, trainimages)
     end
 
     best = trainimages(1);
-    bestScore = score(testimage, trainimages(1))
+    bestScore = score(testimage, trainimages(1));
+    bestIndex = 1;
     imgCount = size(trainimages);
     imgCount = imgCount(2);
     for i=2:imgCount
-        score(testimage, trainimages(i))
-        if score(testimage, trainimages(i)) < bestScore
+        currentScore = score(testimage, trainimages(i));
+        if currentScore < bestScore
             best = trainimages(i);
+            bestIndex = i;
+            bestScore = currentScore;
         end
     end
-    
+    bestIndex;
     nearest = best;
 end
 

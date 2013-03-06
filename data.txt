@@ -1,0 +1,78 @@
+Default
+
+Digits
+
+accuracy =
+
+		0.9375
+
+
+errors =
+
+	Columns 1 through 11
+
+	 604   642   673   680   685   701   703   711   732   747   753
+
+	Columns 12 through 22
+
+	 769   776   795   822   842   866   913   946   947   960   961
+
+	Columns 23 through 25
+
+	 980   998   999
+
+
+
+Shapes
+
+accuracy =
+
+		0.9950
+
+
+errors =
+
+	 890   922
+	 
+	 
+	 
+Circuits
+
+accuracy =
+
+		0.8000
+
+
+errors =
+
+	Columns 1 through 11
+
+	 610   613   620   621   629   633   634   635   636   641   644
+
+	Columns 12 through 22
+
+	 645   650   653   662   664   669   672   682   683   698   702
+
+	Columns 23 through 33
+
+	 703   716   722   727   733   735   740   743   746   755   763
+
+	Columns 34 through 44
+
+	 769   770   773   780   781   785   794   796   799   811   812
+
+	Columns 45 through 55
+
+	 813   817   830   836   838   839   840   849   851   857   858
+
+	Columns 56 through 66
+
+	 861   867   871   878   887   889   892   893   903   912   913
+
+	Columns 67 through 77
+
+	 916   925   938   947   956   959   962   965   966   974   975
+
+	Columns 78 through 80
+
+	 981   987   990

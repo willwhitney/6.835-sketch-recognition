@@ -5,11 +5,11 @@
 function fimg = createFeatureImage(symbol)
     h = 24;
     fimg = zeros(h, h, 4);
-    tangentWindow = 5;
+    tangentWindow = 10;
     referenceAngles = [0; pi/4; pi/2; 3*pi/4];
     numPoints = size(symbol.x);
     numPoints = numPoints(1);
-    sigma = 1;
+    sigma = 1.0;
     
     temp = symbol.y;
     symbol.y = symbol.x;
@@ -83,5 +83,5 @@ function fimg = createFeatureImage(symbol)
 %     clf
 %     displayImage(fimg, symbol)
     
-%     fimg = downsample(fimg);
+    fimg = downsample(fimg);
 end
